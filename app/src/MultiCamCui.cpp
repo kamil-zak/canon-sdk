@@ -13,6 +13,7 @@
 #include "Property.h"
 #include "CameraModel.h"
 #include "utility.h"
+#include "CameraEvent.h"
 
 static std::string control_number = "";
 static bool keyflag;
@@ -186,6 +187,9 @@ int main()
 		}
 
 		PreSetting(_detectedCameraArray);
+
+		EdsUInt32 dat = 0;
+					EdsSetCameraAddedHandler(handleCameraAdded, (EdsVoid *)dat);
 
 		clr_screen();
 
@@ -740,7 +744,8 @@ int main()
 			// send getevent periodically
 			EdsGetEvent();
 			std::this_thread::sleep_for(200ms);
-		}
+			
+			}
 
 		EdsUInt32 refcount = 0;
 		bool berr = true;

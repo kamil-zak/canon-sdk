@@ -8,3 +8,4 @@ EdsError EDSCALLBACK handlePropertyEvent(
 	EdsUInt32 inParam,
 	EdsVoid *inContext);
 EdsError EDSCALLBACK handleSateEvent(EdsStateEvent event, EdsUInt32 parameter, EdsVoid *context);
+EdsError EDSCALLBACK handleCameraAdded(EdsVoid *inContext );

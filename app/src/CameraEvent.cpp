@@ -9,7 +9,7 @@ EdsError downloadImage(EdsDirectoryItemRef directoryItem, EdsVoid *context);
 EdsError EDSCALLBACK handleObjectEvent(EdsObjectEvent event, EdsBaseRef object, EdsVoid *context)
 {
 	EdsError err = EDS_ERR_OK;
-
+	std::cout << "ObjectEvent" << std::hex << event << std::endl;
 	switch (event)
 	{
 	case kEdsObjectEvent_DirItemRequestTransfer:
@@ -33,6 +33,7 @@ EdsError EDSCALLBACK handlePropertyEvent(
 	EdsUInt32 inParam,
 	EdsVoid *inContext)
 {
+	std::cout << "StateEvent" << std::hex << inEvent << std::endl;
 	EdsError err = EDS_ERR_OK;
 	// do something
 	return err;
@@ -40,7 +41,14 @@ EdsError EDSCALLBACK handlePropertyEvent(
 
 EdsError EDSCALLBACK handleSateEvent(EdsStateEvent event, EdsUInt32 parameter, EdsVoid *context)
 {
+	std::cout << "StateEvent" << std::hex << event << std::endl;
 	EdsError err = EDS_ERR_OK;
 	// do something
 	return err;
 }
+
+
+EdsError  EDSCALLBACK handleCameraAdded(EdsVoid *inContext ) {
+	std::cout << "CameraAdded" << std::endl;
+	return EDS_ERR_OK;
+};
